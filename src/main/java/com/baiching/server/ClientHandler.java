@@ -1,4 +1,4 @@
-package com.baiching.client;
+package com.baiching.server;
 
 import java.io.*;
 import java.net.Socket;
