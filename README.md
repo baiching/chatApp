@@ -48,7 +48,21 @@ The server will:
 java -cp target/chatApp-1.0-SNAPSHOT.jar com.baiching.client.ChatClient
 ```
 
-(Note: Client implementation needs to be completed - see Development section)
+The client will:
+1. Connect to server at 127.0.0.1:5000
+2. Allow sending messages via console input
+3. Display received messages from server
+4. Type "exit" to disconnect
+
+Example session:
+```bash
+Connected to the chat server
+Hello everyone!  # User input
+Hello everyone!  # Server echo
+How are you?     # User input
+How are you?     # Server echo
+exit             # Disconnects
+```
 
 ## Implementation Details
 
@@ -68,7 +82,7 @@ java -cp target/chatApp-1.0-SNAPSHOT.jar com.baiching.client.ChatClient
 ## Development Status
 
 ✅ Server implementation complete  
-🔲 Client implementation needed  
+✅ Client implementation complete  
 🔲 Message protocol definition  
 🔲 Error handling improvements  
 
