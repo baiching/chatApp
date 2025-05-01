@@ -7,6 +7,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ChatClientUI extends JFrame {
     private JTextArea messageArea;
@@ -17,16 +19,32 @@ public class ChatClientUI extends JFrame {
         super("Chat Application");
         setSize(400, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        Color backgroundColor = new Color(240, 240, 240);
+        Color buttonColor = new Color(75, 75, 75);
+        Color textColor = new Color(50, 50, 50);
+        Font textFont = new Font("Arial", Font.PLAIN, 14);
+        Font buttonFont = new Font("Arial", Font.BOLD, 12);
 
         messageArea = new JTextArea();
         messageArea.setEditable(false);
-        add(new JScrollPane(messageArea), BorderLayout.CENTER);
+        messageArea.setBackground(backgroundColor);
+        messageArea.setForeground(textColor);
+        messageArea.setFont(textFont);
+        JScrollPane scrollPane = new JScrollPane(messageArea);
+        add(scrollPane, BorderLayout.CENTER);
 
         textField = new JTextField();
+
+        String name = JOptionPane.showInputDialog(this, "Enter your name:",
+                "Name Entry", JOptionPane.PLAIN_MESSAGE);
+        this.setTitle("Chat Application - " + name);
+
         textField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                client.sendMessage(textField.getText());
+                String message = "[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " + name + ": "
+                        + textField.getText();
+                client.sendMessage(message);
                 textField.setText("");
             }
         });
