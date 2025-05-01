@@ -42,17 +42,28 @@ The server will:
 2. Log client connections
 3. Broadcast all received messages to connected clients
 
-## Running a Client
+## Running the Application
 
+1. First start the server:
+```bash
+java -cp target/chatApp-1.0-SNAPSHOT.jar com.baiching.server.ChatServer
+```
+
+2. Then start the UI client:
+```bash
+java -cp target/chatApp-1.0-SNAPSHOT.jar com.baiching.ChatClientUI
+```
+
+The UI client provides:
+- Graphical interface for messaging
+- Message history display
+- Real-time message updates
+- Clean disconnect handling
+
+For console clients (alternative to UI):
 ```bash
 java -cp target/chatApp-1.0-SNAPSHOT.jar com.baiching.client.ChatClient
 ```
-
-The client will:
-1. Connect to server at 127.0.0.1:5000
-2. Allow sending messages via console input
-3. Display received messages from server
-4. Type "exit" to disconnect
 
 Example session:
 ```bash
@@ -82,7 +93,8 @@ exit             # Disconnects
 ## Development Status
 
 ✅ Server implementation complete  
-✅ Client implementation complete  
+✅ Console client implementation complete  
+✅ UI client implementation complete  
 🔲 Message protocol definition  
 🔲 Error handling improvements  
 
